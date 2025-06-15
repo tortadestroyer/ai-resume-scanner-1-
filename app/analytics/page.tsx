@@ -89,31 +89,34 @@ export default function AnalyticsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gray-50 pt-24">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">ResuScan Analytics Dashboard</h1>
-            <p className="text-gray-600 mt-2">Real-time recruitment insights and performance metrics</p>
+        <div className="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 break-words">ResuScan Analytics Dashboard</h1>
+            <p className="text-gray-600 mt-2 text-sm sm:text-base break-words">Real-time recruitment insights and performance metrics</p>
           </div>
-          <div className="mt-4 sm:mt-0 flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 flex-shrink-0">
             <div className="flex items-center space-x-2">
               <div className={`w-3 h-3 rounded-full ${isLive ? 'bg-green-500' : 'bg-gray-400'}`}></div>
-              <span className="text-sm text-gray-600">{isLive ? 'Live Data' : 'Paused'}</span>
+              <span className="text-sm text-gray-600 whitespace-nowrap">{isLive ? 'Live Data' : 'Paused'}</span>
             </div>
-            <Button
-              onClick={() => setIsLive(!isLive)}
-              variant="outline"
-              size="sm"
-            >
-              {isLive ? 'Pause' : 'Resume'}
-            </Button>
-            <Link href="/demo">
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Schedule Demo
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => setIsLive(!isLive)}
+                variant="outline"
+                size="sm"
+                className="whitespace-nowrap"
+              >
+                {isLive ? 'Pause' : 'Resume'}
               </Button>
-            </Link>
+              <Link href="/demo">
+                <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">
+                  Schedule Demo
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 

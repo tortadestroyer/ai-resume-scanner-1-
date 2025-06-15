@@ -132,23 +132,29 @@ export function HowItWorks() {
                   </div>
 
                   <CardContent className="p-8 text-center relative z-10">
-                    <motion.div
-                      className={`mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r ${step.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}
-                      whileHover={{
-                        rotate: 360,
-                        scale: 1.1,
-                        transition: { duration: 0.6 }
-                      }}
-                    >
-                      <step.icon className="h-10 w-10 text-white" />
-                    </motion.div>
+                    <div className="relative mb-6 inline-block">
+                      <motion.div
+                        className={`inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r ${step.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}
+                        whileHover={{
+                          rotate: 360,
+                          scale: 1.1,
+                          transition: { duration: 0.6 }
+                        }}
+                      >
+                        <step.icon className="h-10 w-10 text-white" />
+                      </motion.div>
 
-                    <motion.div
-                      className="mb-3 text-sm font-bold text-blue-600 bg-blue-100 px-3 py-1 rounded-full inline-block"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      Step {index + 1}
-                    </motion.div>
+                      {/* Step Badge positioned on top-right of icon */}
+                      <motion.div
+                        className="absolute -top-2 -right-2 h-8 w-8 bg-white border-2 border-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                        whileHover={{ scale: 1.1 }}
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 200 }}
+                      >
+                        <span className="text-xs font-bold text-blue-600">{index + 1}</span>
+                      </motion.div>
+                    </div>
 
                     <h3 className="mb-3 text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                       {step.title}

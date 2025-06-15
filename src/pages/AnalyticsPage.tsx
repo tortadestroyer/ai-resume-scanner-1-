@@ -108,7 +108,7 @@ export function AnalyticsPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen bg-gray-50 pt-20"
+      className="min-h-screen bg-gray-50 pt-24"
     >
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -116,29 +116,32 @@ export function AnalyticsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between"
+          className="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
         >
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">ResuScan Analytics Dashboard</h1>
-            <p className="text-gray-600 mt-2">Real-time recruitment insights and performance metrics</p>
+          <div className="flex-1 min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 break-words">ResuScan Analytics Dashboard</h1>
+            <p className="text-gray-600 mt-2 text-sm sm:text-base break-words">Real-time recruitment insights and performance metrics</p>
           </div>
-          <div className="mt-4 sm:mt-0 flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 flex-shrink-0">
             <div className="flex items-center space-x-2">
               <div className={`w-3 h-3 rounded-full ${isLive ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
-              <span className="text-sm text-gray-600">{isLive ? 'Live Data' : 'Paused'}</span>
+              <span className="text-sm text-gray-600 whitespace-nowrap">{isLive ? 'Live Data' : 'Paused'}</span>
             </div>
-            <Button
-              onClick={() => setIsLive(!isLive)}
-              variant="outline"
-              size="sm"
-            >
-              {isLive ? 'Pause' : 'Resume'}
-            </Button>
-            <Link to="/demo">
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Schedule Demo
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => setIsLive(!isLive)}
+                variant="outline"
+                size="sm"
+                className="whitespace-nowrap"
+              >
+                {isLive ? 'Pause' : 'Resume'}
               </Button>
-            </Link>
+              <Link to="/demo">
+                <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">
+                  Schedule Demo
+                </Button>
+              </Link>
+            </div>
           </div>
         </motion.div>
 

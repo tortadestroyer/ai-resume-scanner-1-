@@ -157,7 +157,7 @@ export function Pricing() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-8 lg:grid-cols-4"
+          className="grid gap-8 lg:grid-cols-4 pt-8"
         >
           {plans.map((plan, index) => (
             <motion.div
@@ -169,7 +169,7 @@ export function Pricing() {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className={`relative h-full transition-all duration-500 overflow-hidden ${
+              <Card className={`relative h-full transition-all duration-500 ${
                 plan.popular
                   ? "border-0 bg-gradient-to-br from-blue-50 to-purple-50 shadow-2xl scale-105"
                   : "border-gray-200 bg-white shadow-lg hover:shadow-2xl"
@@ -185,19 +185,19 @@ export function Pricing() {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <motion.div
-                    className="absolute -top-4 left-1/2 -translate-x-1/2 z-10"
+                    className="relative -mb-2 flex justify-center z-20 pt-3"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                   >
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center">
-                      <Star className="w-4 h-4 mr-1" />
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md flex items-center whitespace-nowrap">
+                      <Star className="w-3 h-3 mr-1" />
                       Most Popular
                     </div>
                   </motion.div>
                 )}
 
-                <CardHeader className="text-center relative z-20 pb-4">
+                <CardHeader className={`text-center relative z-20 pb-4 ${plan.popular ? 'pt-4' : ''}`}>
                   <CardTitle className="text-xl font-bold text-gray-900 mb-2">{plan.name}</CardTitle>
                   <motion.div
                     className="mt-4"

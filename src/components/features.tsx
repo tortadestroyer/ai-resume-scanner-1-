@@ -117,13 +117,13 @@ export function Features() {
               }}
               className="group"
             >
-              <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm hover:bg-white group-hover:scale-105 overflow-hidden relative">
+              <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm hover:bg-white group-hover:scale-105 overflow-hidden relative h-full">
                 {/* Gradient Border Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[1px] rounded-lg">
                   <div className="bg-white rounded-lg h-full w-full"></div>
                 </div>
 
-                <CardContent className="p-8 relative z-10">
+                <CardContent className="p-8 relative z-10 flex flex-col h-full">
                   <motion.div
                     className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r ${feature.gradient} shadow-lg group-hover:shadow-xl transition-all duration-300`}
                     whileHover={{
@@ -139,7 +139,7 @@ export function Features() {
                     {feature.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 flex-grow">
                     {feature.description}
                   </p>
 
